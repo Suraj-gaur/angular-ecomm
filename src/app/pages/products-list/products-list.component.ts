@@ -16,40 +16,46 @@ import { ProductCardComponent } from "./product-card/product-card.component";
 })
 export class ProductsListComponent {
 
+  async ngOnInit() {
+    const res = await fetch('https://fakestoreapi.com/products');
+    const data = await res.json();
+    this.products.set(data);
+  }
+
   products = signal<Products[]>([
-    {
-      id: 1,
-      title: 'Product 1',
-      price: 100,
-      image: 'https://via.placeholder.com/150',
-      stock: 10
-    },
-    {
-      id: 2,
-      title: 'Product 2',
-      price: 200,
-      image: 'https://via.placeholder.com/150',
-      stock: 5
-    },
-    {
-      id: 3,
-      title: 'Product 3',
-      price: 300,
-      image: 'https://via.placeholder.com/150'
-    },
-    {
-      id: 4,
-      title: 'Product 4',
-      price: 400,
-      image: 'https://via.placeholder.com/150',
-      stock: 0
-    },
-    {
-      id: 5,
-      title: 'Product 5',
-      price: 500,
-      image: 'https://via.placeholder.com/150',
-      stock: 20
-    }
+    // {
+    //   id: 1,
+    //   title: 'Product 1',
+    //   price: 100,
+    //   image: 'https://via.placeholder.com/150',
+    //   stock: 10
+    // },
+    // {
+    //   id: 2,
+    //   title: 'Product 2',
+    //   price: 200,
+    //   image: 'https://via.placeholder.com/150',
+    //   stock: 5
+    // },
+    // {
+    //   id: 3,
+    //   title: 'Product 3',
+    //   price: 300,
+    //   image: 'https://via.placeholder.com/150'
+    // },
+    // {
+    //   id: 4,
+    //   title: 'Product 4',
+    //   price: 400,
+    //   image: 'https://via.placeholder.com/150',
+    //   stock: 0
+    // },
+    // {
+    //   id: 5,
+    //   title: 'Product 5',
+    //   price: 500,
+    //   image: 'https://via.placeholder.com/150',
+    //   stock: 20
+    // }
   ])
 }

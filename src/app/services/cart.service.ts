@@ -6,20 +6,7 @@ import { Products } from '../models/products.model';
 })
 export class CartService {
 
-  cart = signal<Products[]>([{
-    id: 1,
-    title: 'Product 1',
-    price: 100,
-    image: 'https://via.placeholder.com/150',
-    stock: 10
-  },
-  {
-    id: 2,
-    title: 'Product 2',
-    price: 200,
-    image: 'https://via.placeholder.com/150',
-    stock: 5
-  }]);
+  cart = signal<Products[]>([]);
 
   addToCart(product: Products) {
     const existingProduct = this.cart().find(item => item.id === product.id);
